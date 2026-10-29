@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const videos = [
-  { id: 1, title: "Introduction to Docker" },
-  { id: 2, title: "Microservices with Node.js" }
+  { id: 1, title: "Introduction to Docker", duration: "10 min" },
+  { id: 2, title: "Microservices with Node.js", duration: "15 min" }
 ];
 
 app.get("/videos", (req, res) => res.json(videos));
