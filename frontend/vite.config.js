@@ -9,7 +9,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       "/api": {
-        target: "http://api-gateway:3002",
+        target: "http://host.docker.internal:3002",
         changeOrigin: true,
       },
     },

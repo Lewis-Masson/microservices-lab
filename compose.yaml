@@ -8,11 +8,15 @@ services:
   api-gateway:
     build: ./api-gateway
     environment:
-      USER_SERVICE_URL: http://user-service:3000
-      VIDEO_SERVICE_URL: http://video-service:3001
+      USER_SERVICE_URL: http://host.docker.internal:3000
+      VIDEO_SERVICE_URL: http://host.docker.internal:3001
     ports: ["3002:3002"]
     depends_on: [user-service, video-service]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   frontend:
     build: ./frontend
     ports: ["3003:3000"]
     depends_on: [api-gateway]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
